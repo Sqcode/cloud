@@ -1,0 +1,18 @@
+server:
+  port: 9000
+spring:
+  apllcation:
+    name: order-service
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        service: order-service
+    sentinel:
+      transport:
+        dashboard: localhost：8021
+
+feign:
+  sentinel:
+    enabled: true
