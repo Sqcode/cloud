@@ -1,2 +1,1 @@
-add a new read .
-update from pc , then pull to local . test
+test update , then push to remote .
