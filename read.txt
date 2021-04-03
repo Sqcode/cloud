@@ -1,6 +1,4 @@
-test update , then push to remote .
 
-4.3 update in test branch , then commit on test
-4.3 update in dev branch , then commit on dev
-
-will conflict , test & dev
+Test:
+ update read.txt in my local branch sqc_dev ,  then push to remote sqc_dev
+ will to do : remote sqc_dev merge to remote dev
