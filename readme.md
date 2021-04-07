@@ -8,3 +8,5 @@ This's will a SpringCloud Alibaba
 update!  --no-ff
 
 absolutely
+
+sqc_dev update
