@@ -8,3 +8,5 @@ This's will a SpringCloud Alibaba
 update!  --no-ff
 
 absolutely
+
+4-7 the others merge here , then local update something in sqc_dev , what will happen ? can 
