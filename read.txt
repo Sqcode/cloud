@@ -7,3 +7,6 @@ Test:
  4-7 update something
 
  update read.txt in sqc_dev
+
+
+  4-7 update something in sqc1_dev
