@@ -11,9 +11,9 @@
     <modules>
         <module>order-service</module>
         <module>stock-service</module>
-        <module>web</module>
         <module>credit-service</module>
         <module>gateway-web</module>
+        <module>schedule</module>
     </modules>
 
     <parent>

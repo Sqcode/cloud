@@ -1,0 +1,19 @@
+server:
+  port: 10000
+spring:
+  apllcation:
+    name: schedule-service
+
+
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848
+#        service: order-service
+#    sentinel:
+#      transport:
+#        dashboard: localhost：8021
+#  data
+#feign:
+#  sentinel:
+#    enabled: true
