@@ -1,17 +1,9 @@
 package sqc.quartz.dao;
 
-import sqc.quartz.entity.SysQuartz;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface SysQuartzMapper {
-    int deleteByPrimaryKey(Integer id);
+@Mapper
+public interface SysQuartzMapper extends BaseMapper {
 
-    int insert(SysQuartz record);
-
-    int insertSelective(SysQuartz record);
-
-    SysQuartz selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysQuartz record);
-
-    int updateByPrimaryKey(SysQuartz record);
 }
