@@ -1,13 +1,12 @@
-package sqc.quartz;
+package sqc.quartz.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.JobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 import sqc.quartz.job.DemoJob;
 
-@Configuration
+//@Configuration
 public class QuartzConfig {
 
     /**

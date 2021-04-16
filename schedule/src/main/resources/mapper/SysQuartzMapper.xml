@@ -185,4 +185,22 @@
       updated_time = #{updatedTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectJob" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_quartz
+    where job_status =1
+  </select>
+  <select id="selectJobByGroup" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_quartz
+    where job_status =1 and job_group='report'
+  </select>
+  <select id="selectByJobName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_quartz
+    where job_name=#{jobName} and job_group= #{jobGroup}
+  </select>
 </mapper>
