@@ -1,9 +1,0 @@
-
-Test:
- update read.txt in my local branch sqc_dev ,  then push to remote sqc_dev
- will to do : remote sqc_dev merge to remote dev
-
-
- 4-7 update something
-
- update read.txt in sqc_dev
