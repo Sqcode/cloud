@@ -14,14 +14,20 @@ spring:
           # 允许nacos注册发现
           enabled: true
       routes:
-        - id: order
-          uri: lb://order-service/
-          ###路由匹配规则 表示当客户端访问http://ip:8000/order-service/**地址时, gateway就会转发到order-service会员服务的具体地址
-          predicates:
-            - Path=/order-service/**
-          filters:
-            # 将网关端口号截取，转发
-            - StripPrefix=1
+      - id: order
+        uri: lb://order-service/
+        ###路由匹配规则 表示当客户端访问http://ip:8000/order-service/**地址时, gateway就会转发到order-service会员服务的具体地址
+        predicates:
+          - Path=/order-service/**
+        filters:
+          # 将网关端口号截取，转发
+          - StripPrefix=1
+      - id: goods
+        uri: lb://goods-service/
+        predicates:
+          - Path=/goods-service/**
+        filters:
+          - StripPrefix=1
 #Spring boot actuator
 management:
   endpoints:
