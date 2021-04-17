@@ -1,6 +1,5 @@
 package sqc.quartz.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,9 +70,10 @@ public class QuartzManagerServiceImpl extends ServiceImpl<QuartzMapper, Quartz> 
             default:
                 throw new RuntimeException("任务不支持该操作");
         }
-        UpdateWrapper<Quartz> updateWrapper = new UpdateWrapper();
-        updateWrapper.eq("flag", true);
-        baseMapper.update(find, updateWrapper);
+//        UpdateWrapper<Quartz> updateWrapper = new UpdateWrapper();
+//        updateWrapper.eq("flag", true);
+        baseMapper.updateById(find);
+//        baseMapper.update(find, updateWrapper);
     }
 
     @Override
