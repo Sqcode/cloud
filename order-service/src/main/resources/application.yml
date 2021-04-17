@@ -11,8 +11,7 @@ spring:
         service: order-service
     sentinel:
       transport:
-        dashboard: localhost：8021
-  data
+        dashboard: localhost:8021
 feign:
   sentinel:
     enabled: true
