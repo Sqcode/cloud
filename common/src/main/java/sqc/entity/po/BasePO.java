@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import java.util.Date;
 
-public class BasePo implements Serializable {
+public class BasePO implements Serializable {
 
     @TableId(type = IdType.ID_WORKER_STR)
     private String id;
