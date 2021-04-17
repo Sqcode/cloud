@@ -1,15 +1,16 @@
 package sqc.quartz.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.quartz.SchedulerException;
-import sqc.quartz.entity.SysQuartz;
+import sqc.quartz.entity.Quartz;
 import sqc.quartz.enums.QuartzJobOperateEnum;
 
-public interface QuartzManagerService {
+public interface QuartzManagerService extends IService<Quartz> {
 
-    void addJob(SysQuartz job) throws ClassNotFoundException, SchedulerException;
+    void addJob(Quartz job) throws ClassNotFoundException, SchedulerException;
 
-    void modifyJob(Integer id, QuartzJobOperateEnum operateEnum, SysQuartz job) throws SchedulerException;
+    void modifyJob(String id, Quartz job, QuartzJobOperateEnum operateEnum) throws SchedulerException;
 
-    void removeJob(Integer id) throws SchedulerException;
+    void removeJob(String id) throws SchedulerException;
 
 }

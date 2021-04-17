@@ -4,7 +4,7 @@ import org.quartz.*;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import sqc.quartz.entity.SysQuartz;
+import sqc.quartz.entity.Quartz;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class QuartzManager {
      * @throws SchedulerException     调度异常
      * @throws ClassNotFoundException 类找不到
      */
-    public void addJob(SysQuartz job) throws SchedulerException, ClassNotFoundException {
+    public void addJob(Quartz job) throws SchedulerException, ClassNotFoundException {
         //加载指定任务的实例class文件
         Class<? extends Job> jobClass = (Class<? extends Job>) (Class.forName(job.getBeanClass()));
         // 任务名称和组构成任务key
@@ -49,14 +49,14 @@ public class QuartzManager {
      * @return
      * @throws SchedulerException
      */
-    public List<SysQuartz> listJob() throws SchedulerException {
+    public List<Quartz> listJob() throws SchedulerException {
         GroupMatcher<JobKey> matcher = GroupMatcher.anyJobGroup();
         Set<JobKey> jobKeys = scheduler.getJobKeys(matcher);
-        List<SysQuartz> jobList = new ArrayList<>();
+        List<Quartz> jobList = new ArrayList<>();
         for (JobKey jobKey : jobKeys) {
             List<? extends Trigger> triggers = scheduler.getTriggersOfJob(jobKey);
             for (Trigger trigger : triggers) {
-                SysQuartz job = new SysQuartz();
+                Quartz job = new Quartz();
                 job.setJobName(jobKey.getName());
                 job.setJobGroup(jobKey.getGroup());
                 job.setDescription("触发器:" + trigger.getKey());
@@ -79,11 +79,11 @@ public class QuartzManager {
      * @return
      * @throws SchedulerException
      */
-    public List<SysQuartz> listRunningJob() throws SchedulerException {
+    public List<Quartz> listRunningJob() throws SchedulerException {
         List<JobExecutionContext> executingJobs = scheduler.getCurrentlyExecutingJobs();
-        List<SysQuartz> jobList = new ArrayList<SysQuartz>(executingJobs.size());
+        List<Quartz> jobList = new ArrayList<Quartz>(executingJobs.size());
         for (JobExecutionContext executingJob : executingJobs) {
-            SysQuartz job = new SysQuartz();
+            Quartz job = new Quartz();
             JobDetail jobDetail = executingJob.getJobDetail();
             JobKey jobKey = jobDetail.getKey();
             Trigger trigger = executingJob.getTrigger();
@@ -108,7 +108,7 @@ public class QuartzManager {
      * @param job
      * @throws SchedulerException
      */
-    public void pauseJob(SysQuartz job) throws SchedulerException {
+    public void pauseJob(Quartz job) throws SchedulerException {
         JobKey jobKey = JobKey.jobKey(job.getJobName(), job.getJobGroup());
         scheduler.pauseJob(jobKey);
     }
@@ -119,7 +119,7 @@ public class QuartzManager {
      * @param job
      * @throws SchedulerException
      */
-    public void resumeJob(SysQuartz job) throws SchedulerException {
+    public void resumeJob(Quartz job) throws SchedulerException {
         JobKey jobKey = JobKey.jobKey(job.getJobName(), job.getJobGroup());
         scheduler.resumeJob(jobKey);
     }
@@ -130,7 +130,7 @@ public class QuartzManager {
      * @param job
      * @throws SchedulerException
      */
-    public void deleteJob(SysQuartz job) throws SchedulerException {
+    public void deleteJob(Quartz job) throws SchedulerException {
         JobKey jobKey = JobKey.jobKey(job.getJobName(), job.getJobGroup());
         scheduler.deleteJob(jobKey);
 
@@ -142,7 +142,7 @@ public class QuartzManager {
      * @param job
      * @throws SchedulerException
      */
-    public void runJobNow(SysQuartz job) throws SchedulerException {
+    public void runJobNow(Quartz job) throws SchedulerException {
         JobKey jobKey = JobKey.jobKey(job.getJobName(), job.getJobGroup());
         scheduler.triggerJob(jobKey);
     }
@@ -153,7 +153,7 @@ public class QuartzManager {
      * @param job
      * @throws SchedulerException
      */
-    public void updateJobCron(SysQuartz job) throws SchedulerException {
+    public void updateJobCron(Quartz job) throws SchedulerException {
 
         TriggerKey triggerKey = TriggerKey.triggerKey(job.getJobName(), job.getJobGroup());
 
