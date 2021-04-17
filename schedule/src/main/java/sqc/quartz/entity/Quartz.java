@@ -4,14 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysQuartz {
-
-    private Integer id;
+public class Quartz implements Serializable {
+    private String id;
 
     private String jobName;
 
@@ -27,7 +26,7 @@ public class SysQuartz {
 
     private String jobGroup;
 
-    private Integer flag;
+    private Boolean flag;
 
     private String createdBy;
 

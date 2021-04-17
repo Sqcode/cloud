@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="sqc.quartz.dao.SysQuartzMapper">
-  <resultMap id="BaseResultMap" type="sqc.quartz.entity.SysQuartz">
-    <id column="id" jdbcType="INTEGER" property="id" />
+<mapper namespace="sqc.quartz.dao.QuartzMapper">
+  <resultMap id="BaseResultMap" type="sqc.quartz.entity.Quartz">
+    <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="job_name" jdbcType="VARCHAR" property="jobName" />
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="cron_expression" jdbcType="VARCHAR" property="cronExpression" />
@@ -10,7 +10,7 @@
     <result column="bean_class" jdbcType="VARCHAR" property="beanClass" />
     <result column="job_status" jdbcType="VARCHAR" property="jobStatus" />
     <result column="job_group" jdbcType="VARCHAR" property="jobGroup" />
-    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="flag" jdbcType="BIT" property="flag" />
     <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
     <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
     <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
@@ -23,27 +23,27 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from sys_quartz
-    where id = #{id,jdbcType=INTEGER}
+    from quartz
+    where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from sys_quartz
-    where id = #{id,jdbcType=INTEGER}
+    delete from quartz
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="sqc.quartz.entity.SysQuartz">
-    insert into sys_quartz (id, job_name, description, 
+  <insert id="insert" parameterType="sqc.quartz.entity.Quartz">
+    insert into quartz (id, job_name, description, 
       cron_expression, expression_desc, bean_class, 
       job_status, job_group, flag, 
       created_by, created_time, updated_by, 
       updated_time)
-    values (#{id,jdbcType=INTEGER}, #{jobName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{jobName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{cronExpression,jdbcType=VARCHAR}, #{expressionDesc,jdbcType=VARCHAR}, #{beanClass,jdbcType=VARCHAR}, 
-      #{jobStatus,jdbcType=VARCHAR}, #{jobGroup,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{jobStatus,jdbcType=VARCHAR}, #{jobGroup,jdbcType=VARCHAR}, #{flag,jdbcType=BIT}, 
       #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
       #{updatedTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="sqc.quartz.entity.SysQuartz">
-    insert into sys_quartz
+  <insert id="insertSelective" parameterType="sqc.quartz.entity.Quartz">
+    insert into quartz
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -87,7 +87,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="jobName != null">
         #{jobName,jdbcType=VARCHAR},
@@ -111,7 +111,7 @@
         #{jobGroup,jdbcType=VARCHAR},
       </if>
       <if test="flag != null">
-        #{flag,jdbcType=INTEGER},
+        #{flag,jdbcType=BIT},
       </if>
       <if test="createdBy != null">
         #{createdBy,jdbcType=VARCHAR},
@@ -127,8 +127,8 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="sqc.quartz.entity.SysQuartz">
-    update sys_quartz
+  <update id="updateByPrimaryKeySelective" parameterType="sqc.quartz.entity.Quartz">
+    update quartz
     <set>
       <if test="jobName != null">
         job_name = #{jobName,jdbcType=VARCHAR},
@@ -152,7 +152,7 @@
         job_group = #{jobGroup,jdbcType=VARCHAR},
       </if>
       <if test="flag != null">
-        flag = #{flag,jdbcType=INTEGER},
+        flag = #{flag,jdbcType=BIT},
       </if>
       <if test="createdBy != null">
         created_by = #{createdBy,jdbcType=VARCHAR},
@@ -167,10 +167,10 @@
         updated_time = #{updatedTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="sqc.quartz.entity.SysQuartz">
-    update sys_quartz
+  <update id="updateByPrimaryKey" parameterType="sqc.quartz.entity.Quartz">
+    update quartz
     set job_name = #{jobName,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       cron_expression = #{cronExpression,jdbcType=VARCHAR},
@@ -178,29 +178,23 @@
       bean_class = #{beanClass,jdbcType=VARCHAR},
       job_status = #{jobStatus,jdbcType=VARCHAR},
       job_group = #{jobGroup,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=INTEGER},
+      flag = #{flag,jdbcType=BIT},
       created_by = #{createdBy,jdbcType=VARCHAR},
       created_time = #{createdTime,jdbcType=TIMESTAMP},
       updated_by = #{updatedBy,jdbcType=VARCHAR},
       updated_time = #{updatedTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <select id="selectJob" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
-    from sys_quartz
+    from quartz
     where job_status =1
-  </select>
-  <select id="selectJobByGroup" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List"/>
-    from sys_quartz
-    where job_status =1 and job_group='report'
   </select>
   <select id="selectByJobName" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List"/>
-    from sys_quartz
+    from quartz
     where job_name=#{jobName} and job_group= #{jobGroup}
   </select>
 </mapper>
