@@ -1,13 +1,13 @@
 server:
-  port: 8000
+  port: 7777
 spring:
   apllcation:
-    name: gateway-web
+    name: gateway-server
   cloud:
     nacos:
       discovery:
         server-addr: localhost
-        service: gateway-web
+        service: gateway-server
     gateway:
       discovery:
         locator:

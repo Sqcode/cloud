@@ -2,10 +2,10 @@ server:
   port: 8090
 spring:
   apllcation:
-    name: credit-service
+    name: credit-server
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
-        service: credit-service
+        service: credit-server
 

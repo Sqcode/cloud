@@ -2,16 +2,16 @@ server:
   port: 8002
 spring:
   apllcation:
-    name: goods-service
+    name: goods-server
 
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
-        service: goods-service
+        service: goods-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/sqc?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=GMT
+    url: jdbc:mysql://localhost:3306/sqc?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
     username: root
     password: root
 #    sentinel:
