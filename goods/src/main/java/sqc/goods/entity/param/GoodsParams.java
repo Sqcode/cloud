@@ -1,15 +1,10 @@
 package sqc.goods.entity.param;
 
-import java.math.BigDecimal;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-public class GoodsParams {
+public class GoodsParams extends Page {
     private String id;
 
     private String goodName;
 
-    private String description;
-
-    private Integer stock;
-
-    private BigDecimal price;
 }
