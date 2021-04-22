@@ -3,7 +3,12 @@ server:
 spring:
   apllcation:
     name: goods-server
-
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password:
+    timeout: 10000
   cloud:
     nacos:
       discovery:

@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Goods extends BasePO {
-    private String id;
 
     private String goodName;
 
