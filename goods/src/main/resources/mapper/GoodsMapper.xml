@@ -150,4 +150,10 @@
       updated_time = #{updatedTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="selectListPage" resultType="sqc.goods.entity.po.Goods">
+    select
+    <include refid="Base_Column_List" />
+    from goods
+
+  </select>
 </mapper>
