@@ -1,8 +1,12 @@
 package sqc.goods.entity.vo;
 
+import lombok.Data;
+import sqc.entity.po.BasePO;
+
 import java.math.BigDecimal;
 
-public class GoodsVO {
+@Data
+public class GoodsVO extends BasePO {
 
     private String id;
 

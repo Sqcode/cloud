@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import sqc.entity.vo.Result;
 import sqc.goods.entity.param.GoodsParams;
 import sqc.goods.entity.po.Goods;
+import sqc.goods.entity.vo.GoodsVO;
 import sqc.goods.service.GoodsService;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class GoodsController {
 
     @RequestMapping("listPage")
     public Result listPage (@RequestBody  Page page) {
-        IPage<Goods> goodsIPage = goodsService.listPage(page);
+        IPage<GoodsVO> goodsIPage = goodsService.listPage(page);
         System.out.println("listPage");
         return Result.success(goodsIPage);
     }

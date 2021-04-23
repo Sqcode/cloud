@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import sqc.goods.dao.GoodsMapper;
 import sqc.goods.entity.param.GoodsParams;
 import sqc.goods.entity.po.Goods;
+import sqc.goods.entity.vo.GoodsVO;
 import sqc.goods.service.GoodsService;
 
 import java.util.List;
@@ -31,11 +32,10 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
-    public IPage<Goods> listPage(Page<?> page) {
-
-
-        IPage<Goods> goodsIPage = goodsMapper.selectListPage(page);
-
-        return goodsIPage;
+    public IPage<GoodsVO> listPage(Page<?> page) {
+        IPage iPage = baseMapper.selectListPage(page);
+//
+//        IPage<Goods> goodsIPage = goodsMapper.selectListPage(page);
+        return iPage;
     }
 }
