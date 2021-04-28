@@ -13,7 +13,9 @@ import sqc.entity.po.BasePO;
 import java.util.*;
 
 /**
- * @Description: mysql
+ * @Description: mybatis-plus，MySQL表 代码生成器。
+ * 运行CodeGeneration，输入模块名称（会是一个包，然后其他生成的文件都在这个下面。如果生成了Controller，那@RequestMapping，就会带上这个模块名）
+ * 输入表明，多个可用“,”逗号分隔，当然啦，需要设置。strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
  * @Author: Sqcode
  * @Date: 2021/4/28 15:15
  */
@@ -21,7 +23,7 @@ public class CodeGeneration {
 
     // 代码生成器
     private static final AutoGenerator mpg = new AutoGenerator();
-
+    // 模块路径
     private static final String projectPath = System.getProperty("user.dir") + "/user-service";
     /**
      * <p>
@@ -56,7 +58,7 @@ public class CodeGeneration {
     }
 
     /**
-     * 包配置
+     * 包配置，设置一些包，（templateConfig中可以自动生成一些类）
      */
     private static PackageConfig packageConfig () {
         PackageConfig pc = new PackageConfig();
@@ -71,7 +73,7 @@ public class CodeGeneration {
     }
 
     /**
-     * 自定义配置
+     * 自定义配置，这里将mapper.xml放在resource下面
      */
     private static void injectionConfig () {
         // 自定义配置
@@ -123,7 +125,7 @@ public class CodeGeneration {
     }
 
     /**
-     * 配置模板
+     * 配置模板，是否需要一些标准类的生成
      */
     private static void templateConfig () {
         // 配置模板
@@ -134,7 +136,7 @@ public class CodeGeneration {
         // templateConfig.setEntity("templates/entity2.java");
 
         /**
-         * null,bushengcheng
+         * null, 即不生成
          */
         templateConfig.setXml(null);
 //        templateConfig.setController(null);
@@ -146,7 +148,7 @@ public class CodeGeneration {
     }
 
     /**
-     * 策略配置
+     * 策略配置，可以多表生成，类名，父类继承等等
      */
     private static void strategyConfig (PackageConfig pc) {
         // 策略配置
@@ -178,11 +180,11 @@ public class CodeGeneration {
         gc.setSwagger2(true);// 实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
 
-        dataSourceConfig();
-        PackageConfig pc = packageConfig();
-        injectionConfig();
-        templateConfig();
-        strategyConfig(pc);
+        dataSourceConfig();// 数据库配置
+        PackageConfig pc = packageConfig();// 包的配置
+        injectionConfig();// 自定义的配置，例如把mapper放在resource下面
+        templateConfig();// 模板的配置，例一些controller/impl是否也要自动生成
+        strategyConfig(pc);// 可以多表生成，类名，父类继承等等
 //        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
