@@ -16,6 +16,7 @@
         <module>schedule</module>
         <module>common</module>
         <module>goods</module>
+        <module>user-service</module>
     </modules>
 
     <parent>
@@ -31,8 +32,12 @@
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <mysql-connector.version>8.0.19</mysql-connector.version>
+
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <mybatis-generator.version>1.4.0</mybatis-generator.version>
+        <mybatisplus.boot.starter.version>3.3.2</mybatisplus.boot.starter.version>
+        <velocity-engine-core.version>2.3</velocity-engine-core.version>
+
         <lombok.version>1.18.10</lombok.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
