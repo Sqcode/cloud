@@ -143,7 +143,7 @@ public class CodeGeneration {
 //        templateConfig.setService(null);
 //        templateConfig.setServiceImpl(null);
 //        templateConfig.setEntity(null);
-        templateConfig.setMapper(null);
+//        templateConfig.setMapper(null);
         mpg.setTemplate(templateConfig);
     }
 
