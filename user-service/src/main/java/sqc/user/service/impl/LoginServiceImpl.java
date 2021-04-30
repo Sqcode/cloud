@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import sqc.user.entity.User;
 import sqc.user.entity.form.LoginForm;
 import sqc.user.entity.vo.LoginVO;
+import sqc.user.enums.BusinessErrorTypeEnum;
+import sqc.user.exception.BusinessException;
 import sqc.user.service.IUserService;
 import sqc.user.service.LoginService;
 
@@ -30,10 +32,10 @@ public class LoginServiceImpl implements LoginService {
         queryWrapper.eq("password", loginForm.getPassword());
         User user = userService.getOne(queryWrapper);
         //账号密码错误
-//        if (user == null) {
-//            throw new BusinessException(BusinessEnum.LOGIN_ERROR);
-//        } else {
-//            //判断是否被禁用
+        if (user == null) {
+            throw new BusinessException(BusinessErrorTypeEnum.ACCOUNT_OR_PASSWORD_ERROE);
+        } else {
+            //判断是否被禁用
 //            if (user.getIsEnable().equals(CommonConstant.WEATHER_FALSE)) {
 //                throw new BusinessException(BusinessEnum.USER_ENABLE);
 //            } else {
@@ -64,7 +66,7 @@ public class LoginServiceImpl implements LoginService {
 //                response.setSendPayType(user.getSendPayType());
 //                return response;
 //            }
-//        }
+        }
         return null;
     }
 }

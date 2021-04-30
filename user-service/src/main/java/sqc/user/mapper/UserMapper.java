@@ -1,5 +1,6 @@
 package sqc.user.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import sqc.user.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author Sqcode
  * @since 2021-04-29
  */
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
 }

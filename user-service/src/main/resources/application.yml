@@ -1,8 +1,8 @@
 server:
-  port: 8002
+  port: 9000
 spring:
   apllcation:
-    name: goods-server
+    name: user-server
 #  redis:
 #    host: localhost
 #    port: 6379
@@ -13,7 +13,7 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-        service: good-server
+        service: user-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/sqc?characterEncoding=UTF-8&useUnicode=true&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
