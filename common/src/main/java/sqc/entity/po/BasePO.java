@@ -1,9 +1,6 @@
 package sqc.entity.po;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,16 +12,19 @@ public class BasePO implements Serializable {
     @TableId(type = IdType.ASSIGN_UUID)
     private String id;
 
+    @TableLogic
+    private Boolean flag;
+
     @TableField(fill = FieldFill.INSERT)
     private String createdBy;
 
     @TableField(fill = FieldFill.INSERT)
     private Date createdTime;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.UPDATE)
     private String updatedBy;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.UPDATE)
     private Date updatedTime;
 
 }
