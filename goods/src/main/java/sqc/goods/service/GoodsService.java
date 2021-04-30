@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface GoodsService extends IService<Goods> {
 
+    int insert(Goods goods);
+
     List<Goods> list(GoodsParams goodsParams);
 
     IPage<GoodsVO> listPage(Page<?> page);
