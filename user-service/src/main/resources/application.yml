@@ -35,9 +35,9 @@ logging:
     sqc.user: debug
   file:
     # file.name / file.path ，二选其一
+    path: logs
     # max-size 文件最大的存储空间，大于该值则分割文件-生成多个文件。单位可以是 KB/MB/GB
     max-size: 521MB
-    path: user-service/logs
     # max-history,clean-history-on-start 仅支持logback？？？(以下配置好像不起效)
 
     # max-history 保留天数。
