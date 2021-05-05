@@ -50,7 +50,10 @@ jetcache:
       port: 6379
 logging:
   level:
-    sqc.goods.dao: debug
+    sqc: debug
+  file:
+    path: logs
+    max-size: 521MB
 
 #  path: logs/
 #  file:

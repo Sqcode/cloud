@@ -39,11 +39,10 @@ logging:
     # max-size 文件最大的存储空间，大于该值则分割文件-生成多个文件。单位可以是 KB/MB/GB
     max-size: 521MB
     # max-history,clean-history-on-start 仅支持logback？？？(以下配置好像不起效)
-
     # max-history 保留天数。
-    max-history: 2
+    # max-history: 1
     # 项目启动的时候就删除，配合max-history
-    clean-history-on-start: true
+    # clean-history-on-start: true
 
 
 

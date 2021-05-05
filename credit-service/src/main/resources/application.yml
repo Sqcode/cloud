@@ -13,5 +13,9 @@ spring:
     port: 5672
     username: guest
     password: guest
-
-
+logging:
+  level:
+    sqc: debug
+  file:
+    path: logs
+    max-size: 521MB
