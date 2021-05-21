@@ -7,20 +7,20 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
+import sqc.enums.SystemErrorTypeEnum;
 import sqc.exception.BaseException;
 import sqc.exception.ErrorType;
-import sqc.exception.SystemErrorType;
 
 import java.time.LocalDateTime;
 
-@ApiModel(description = "rest请求的返回模型")
+@ApiModel(description = "Controller请求的返回模型")
 @Getter
 public class Result<T> {
 
-    public static final String SUCCESSFUL_CODE = "000000";
+    public static final String SUCCESSFUL_CODE = "00000";
     public static final String SUCCESSFUL_MSG = "success";
 
-    public static final String LOGIC_CODE = "300000";
+    public static final String LOGIC_CODE = "30000";
     public static final String LOGIC_MSG = "业务异常";
 
     @ApiModelProperty(value = "处理结果code", required = true)
@@ -94,7 +94,7 @@ public class Result<T> {
      * @return Result
      */
     public static Result fail() {
-        return new Result(SystemErrorType.SYSTEM_ERROR);
+        return new Result(SystemErrorTypeEnum.B0001);
     }
 
     /**
@@ -154,7 +154,7 @@ public class Result<T> {
      * @return Result
      */
     public static Result fail(Object data) {
-        return new Result<>(SystemErrorType.SYSTEM_ERROR, data);
+        return new Result<>(SystemErrorTypeEnum.B0001, data);
     }
 
 
