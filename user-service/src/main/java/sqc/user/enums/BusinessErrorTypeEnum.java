@@ -26,19 +26,13 @@ public enum BusinessErrorTypeEnum implements ErrorType {
         this.msg = msg;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
+    @Override
     public String getCode() {
-        return code;
+        return this.code;
     }
 
+    @Override
     public String getMsg() {
-        return msg;
+        return this.msg;
     }
 }

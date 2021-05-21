@@ -1,14 +1,18 @@
 package sqc.enums;
 
+import sqc.exception.ErrorType;
+
 /**
  * @Description: 用户端错误
  * @Author: Sqcode
  * @Date: 2021/5/21 10:26
  */
-public enum UserErrorTypeEnum {
+public enum UserErrorTypeEnum implements ErrorType {
 
-    A0001("用户端错误", "一级宏观错误码"),
-    A0100("用户注册错误", "二级宏观错误码");
+    A0001("A0001", "用户端错误：一级宏观错误码"),
+    A0100("A0100", "用户注册错误：二级宏观错误码"),
+
+    A0210("A0210", "用户账号或密码错误");
 //    A0100 用户注册错误 二级宏观错误码
 //    A0101 用户未同意隐私协议
 //    A0102 注册国家或地区受限
@@ -38,7 +42,7 @@ public enum UserErrorTypeEnum {
 //55/59
 //    A0202 用户账户被冻结
 //    A0203 用户账户已作废
-//    A0210 用户密码错误
+
 //    A0211 用户输入密码错误次数超限
 //    A0220 用户身份校验失败
 //    A0221 用户指纹识别失败
@@ -142,5 +146,15 @@ public enum UserErrorTypeEnum {
     UserErrorTypeEnum(String code, String msg) {
         this.code = code;
         this.msg = msg;
+    }
+
+    @Override
+    public String getCode() {
+        return this.code;
+    }
+
+    @Override
+    public String getMsg() {
+        return this.msg;
     }
 }

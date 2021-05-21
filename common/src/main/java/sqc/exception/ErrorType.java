@@ -1,5 +1,6 @@
 package sqc.exception;
 
+
 public interface ErrorType {
     /**
      * 返回code

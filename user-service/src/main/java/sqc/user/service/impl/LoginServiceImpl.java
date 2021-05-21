@@ -1,14 +1,15 @@
 package sqc.user.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sqc.enums.UserErrorTypeEnum;
 import sqc.user.entity.User;
 import sqc.user.entity.form.LoginForm;
 import sqc.user.entity.vo.LoginVO;
-import sqc.user.enums.BusinessErrorTypeEnum;
-import sqc.user.exception.BusinessException;
+import sqc.user.exception.UserException;
 import sqc.user.service.IUserService;
 import sqc.user.service.LoginService;
 
@@ -17,6 +18,7 @@ import sqc.user.service.LoginService;
  * @Author: Sqcode
  * @Date: 2021/4/29 8:17
  */
+@Slf4j
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class LoginServiceImpl implements LoginService {
@@ -33,7 +35,8 @@ public class LoginServiceImpl implements LoginService {
         User user = userService.getOne(queryWrapper);
         //账号密码错误
         if (user == null) {
-            throw new BusinessException(BusinessErrorTypeEnum.ACCOUNT_OR_PASSWORD_ERROE);
+            log.debug("loginForm: {}", loginForm);
+            throw new UserException(UserErrorTypeEnum.A0210);
         } else {
             //判断是否被禁用
 //            if (user.getIsEnable().equals(CommonConstant.WEATHER_FALSE)) {
