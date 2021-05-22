@@ -45,12 +45,12 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Result exception(Exception e) {
         log.error("Exception:{}", e.getMessage());
-        return Result.fail();
+        return Result.fail(e.getMessage());
     }
 
     @ExceptionHandler(value = {Throwable.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Result throwable() {
-        return Result.fail();
+    public Result throwable(Throwable e) {
+        return Result.fail(e.getMessage());
     }
 }
