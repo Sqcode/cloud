@@ -23,13 +23,13 @@ public class Result<T> {
     public static final String LOGIC_CODE = "30000";
     public static final String LOGIC_MSG = "业务异常";
 
-    @ApiModelProperty(value = "处理结果code", required = true)
+    @ApiModelProperty(value = "结果code", required = true)
     private String code;
-    @ApiModelProperty(value = "处理结果描述信息")
+    @ApiModelProperty(value = "描述信息")
     private String msg;
     @ApiModelProperty(value = "请求结果生成时间戳")
     private LocalDateTime time;
-    @ApiModelProperty(value = "处理结果数据信息")
+    @ApiModelProperty(value = "结果数据信息")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
 

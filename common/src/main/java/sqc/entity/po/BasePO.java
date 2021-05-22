@@ -13,7 +13,7 @@ public class BasePO implements Serializable {
     private String id;
 
     @TableLogic
-    private Boolean flag;
+    private Integer flag;
 
     @TableField(fill = FieldFill.INSERT)
     private String createdBy;

@@ -1,4 +1,4 @@
-package sqc.goods.rest;
+package sqc.goods.controller;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

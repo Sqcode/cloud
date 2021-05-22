@@ -6,13 +6,13 @@ import com.alicp.jetcache.anno.Cached;
 import com.alicp.jetcache.anno.CreateCache;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sqc.goods.dao.GoodsMapper;
 import sqc.goods.entity.param.GoodsParams;
+import sqc.goods.entity.param.GoodsParamsPage;
 import sqc.goods.entity.po.Goods;
 import sqc.goods.entity.vo.GoodsVO;
 import sqc.goods.service.GoodsService;
@@ -49,8 +49,8 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
-    public IPage<GoodsVO> listPage(Page<?> page) {
-        IPage iPage = baseMapper.selectListPage(page);
+    public IPage<GoodsVO> listPage(GoodsParamsPage goodsParamsPage) {
+        IPage iPage = baseMapper.selectListPage(goodsParamsPage.getPage());
 //
 //        IPage<Goods> goodsIPage = goodsMapper.selectListPage(page);
         return iPage;
