@@ -30,11 +30,7 @@ public class User extends BasePO {
     @ApiModelProperty(value = "手机号")
     private String phone;
 
-    @ApiModelProperty(value = "是否删除，1-删除/0-未删除")
-    private Boolean flag;
-
     @ApiModelProperty(value = "1 超级管理员，2超级，3....")
     private Integer type;
-
 
 }
