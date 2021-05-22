@@ -8,13 +8,12 @@ import java.math.BigDecimal;
 @Data
 public class GoodsVO extends BasePO {
 
-    private String id;
-
     private String goodName;
 
-    private String description;
+//    private String description;
 
     private Integer stock;
 
     private BigDecimal price;
+
 }

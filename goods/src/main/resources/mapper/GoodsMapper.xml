@@ -17,11 +17,9 @@
     id, good_name, description, stock, price, flag, created_by, created_time, updated_by,
     updated_time
   </sql>
-
-  <select id="selectListPage" resultType="sqc.goods.entity.po.Goods">
-    select
-    <include refid="Base_Column_List" />
-    from goods
-
+  <select id="selectListPage" resultType="sqc.goods.entity.vo.GoodsVO">
+    SELECT
+        <include refid="Base_Column_List" />
+    FROM goods
   </select>
 </mapper>

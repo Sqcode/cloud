@@ -1,9 +1,11 @@
 package sqc.goods.entity.param;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import javax.validation.constraints.Pattern;
 
+@Data
 public class GoodsParams {
     private String id;
 

@@ -7,6 +7,7 @@ import com.alicp.jetcache.anno.CreateCache;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,19 +40,22 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
 
     @Override
     public List<Goods> list(GoodsParams goodsParams) {
-
         QueryWrapper<Goods> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("flag", true);
-
-        List<Goods> list = this.list(queryWrapper);
-
-        return list;
+        queryWrapper.eq(StringUtils.isNotBlank(goodsParams.getGoodName()), "goods_name", goodsParams.getGoodName());
+        return this.list(queryWrapper);
     }
 
     @Override
-    public IPage<GoodsVO> listPage(GoodsParamsPage goodsParamsPage) {
+    public IPage<Goods> listPage(GoodsParamsPage goodsParamsPage) {
+        QueryWrapper<Goods> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq(StringUtils.isNotBlank(goodsParamsPage.getGoodName()), "goods_name", goodsParamsPage.getGoodName());
+        IPage<Goods> goodsPage = baseMapper.selectPage(goodsParamsPage.getPage(), queryWrapper);
+        return goodsPage;
+    }
+
+    @Override
+    public IPage<GoodsVO> listPageVO(GoodsParamsPage goodsParamsPage) {
         IPage iPage = baseMapper.selectListPage(goodsParamsPage.getPage());
-//
 //        IPage<Goods> goodsIPage = goodsMapper.selectListPage(page);
         return iPage;
     }

@@ -1,18 +1,19 @@
 package sqc.goods.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import sqc.entity.vo.Result;
 import sqc.goods.entity.form.GoodsForm;
 import sqc.goods.entity.param.GoodsParams;
 import sqc.goods.entity.param.GoodsParamsPage;
 import sqc.goods.entity.po.Goods;
-import sqc.goods.entity.vo.GoodsVO;
 import sqc.goods.service.GoodsService;
 
 import javax.validation.Valid;
@@ -35,10 +36,10 @@ public class GoodsController {
     }
 
 
-    @GetMapping("list")
+    @PostMapping("list")
     public Result list (GoodsParams params) {
         List<Goods> list = goodsService.list(params);
-        log.debug("list");
+
         return Result.success(list);
     }
 
@@ -46,8 +47,6 @@ public class GoodsController {
     @ApiOperation(value = "查询分页列表", notes = "查询商品的分页列表")
 //    @Validated
     public Result listPage (@RequestBody GoodsParamsPage goodsParamsPage) {
-        IPage<GoodsVO> goodsIPage = goodsService.listPage(goodsParamsPage);
-        log.debug("listPage");
-        return Result.success(goodsIPage);
+        return Result.success(goodsService.listPageVO(goodsParamsPage));
     }
 }

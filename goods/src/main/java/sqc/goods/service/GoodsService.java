@@ -15,6 +15,13 @@ public interface GoodsService extends IService<Goods> {
 
     List<Goods> list(GoodsParams goodsParams);
 
-    IPage<GoodsVO> listPage(GoodsParamsPage goodsParamsPage);
+    IPage<Goods> listPage(GoodsParamsPage goodsParamsPage);
+
+    /**
+     * 自定义Model，VO
+     * @param goodsParamsPage
+     * @return
+     */
+    IPage<GoodsVO> listPageVO(GoodsParamsPage goodsParamsPage);
 
 }
