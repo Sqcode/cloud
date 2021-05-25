@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @Description： 扇型交换机 广播所有
- * @Author: Sqcode
- * @Date: 2021/4/28 9:53
+ * @author: Sqcode
+ * @since: 2021/4/28 9:53
  */
 @Configuration
 public class FanoutRabbitConfig {

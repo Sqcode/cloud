@@ -6,8 +6,8 @@ import lombok.Data;
 
 /**
  * @Description:
- * @Author: Sqcode
- * @Date: 2021/4/29 8:10
+ * @author: Sqcode
+ * @since: 2021/4/29 8:10
  */
 @Data
 @ApiModel(value = "登录返回")

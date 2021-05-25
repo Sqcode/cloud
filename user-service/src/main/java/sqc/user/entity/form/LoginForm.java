@@ -8,8 +8,8 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * @Description:
- * @Author: Sqcode
- * @Date: 2021/4/29 8:09
+ * @author: Sqcode
+ * @since: 2021/4/29 8:09
  */
 @Data
 @ApiModel(value = "登录请求参数")

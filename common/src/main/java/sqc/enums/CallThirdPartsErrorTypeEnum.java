@@ -2,8 +2,8 @@ package sqc.enums;
 
 /**
  * @Description: 调用第三方服务出错
- * @Author: Sqcode
- * @Date: 2021/5/21 10:29
+ * @author: Sqcode
+ * @since: 2021/5/21 10:29
  */
 public enum CallThirdPartsErrorTypeEnum {
 //    - C0001 调用第三方服务出错 一级宏观错误码

@@ -13,8 +13,8 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * @Author: Sqcode
- * @Date: 2021/4/28 8:49
+ * @author: Sqcode
+ * @since: 2021/4/28 8:49
  */
 @RestController
 @RequestMapping("rabbit")

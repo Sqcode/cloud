@@ -7,8 +7,8 @@ import java.util.Map;
 /**
  *
  * @description: 监听的队列名称 TestDirectQueue
- * @Author: Sqcode
- * @Date: 2021/4/28 9:00
+ * @author: Sqcode
+ * @since: 2021/4/28 9:00
  */
 //@Component
 //@RabbitListener(queues = "TestDirectQueue")

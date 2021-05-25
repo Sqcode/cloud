@@ -12,8 +12,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @Description: Swagger2的配置
- * @Author: Sqcode
- * @Date: 2021/5/10 13:04
+ * @author: Sqcode
+ * @since: 2021/5/10 13:04
  */
 @Configuration
 @EnableSwagger2

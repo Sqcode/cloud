@@ -8,8 +8,8 @@ import sqc.entity.po.BasePO;
 
 /**
  * @Description: 参数分页
- * @Author: Sqcode
- * @Date: 2021/4/30 8:57
+ * @author: Sqcode
+ * @since: 2021/4/30 8:57
  */
 @ApiModel
 @Data

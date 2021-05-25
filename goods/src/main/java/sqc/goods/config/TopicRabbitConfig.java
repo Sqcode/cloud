@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @description：主题交换机
- * @Author: Sqcode
- * @Date: 2021/4/28 9:08
+ * @author: Sqcode
+ * @since: 2021/4/28 9:08
  */
 @Configuration
 public class TopicRabbitConfig {

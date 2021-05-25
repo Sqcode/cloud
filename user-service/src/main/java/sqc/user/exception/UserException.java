@@ -6,8 +6,8 @@ import sqc.exception.ErrorType;
 
 /**
  * @Description: 用户类错误
- * @Author: Sqcode
- * @Date: 2021/5/21 10:35
+ * @author: Sqcode
+ * @since: 2021/5/21 10:35
  */
 public class UserException extends BaseException {
 

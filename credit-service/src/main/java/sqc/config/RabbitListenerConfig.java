@@ -10,8 +10,8 @@ import sqc.listener.MyAckListener;
 
 /**
  * @Description:
- * @Author: Sqcode
- * @Date: 2021/4/28 10:33
+ * @author: Sqcode
+ * @since: 2021/4/28 10:33
  */
 @Configuration
 public class RabbitListenerConfig {

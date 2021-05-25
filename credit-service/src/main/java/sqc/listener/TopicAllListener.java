@@ -6,8 +6,8 @@ import java.util.Map;
 
 /**
  * @description：
- * @Author: Sqcode
- * @Date: 2021/4/28 9:19
+ * @author: Sqcode
+ * @since: 2021/4/28 9:19
  */
 //@Component
 //@RabbitListener(queues = "topic.woman")

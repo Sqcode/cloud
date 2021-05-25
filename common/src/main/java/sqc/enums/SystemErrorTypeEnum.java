@@ -4,8 +4,8 @@ import sqc.exception.ErrorType;
 
 /**
  * @Description: 系统执行出错
- * @Author: Sqcode
- * @Date: 2021/5/21 10:27
+ * @author: Sqcode
+ * @since: 2021/5/21 10:27
  */
 public enum SystemErrorTypeEnum implements ErrorType {
 

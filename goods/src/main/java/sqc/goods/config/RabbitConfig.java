@@ -16,8 +16,8 @@ import org.springframework.context.annotation.Configuration;
  * ③消息推送到sever，交换机和队列啥都没找到 ===  ConfirmCallback 回调函数。
  * ④消息推送成功 ===  ConfirmCallback 回调函数。
  *
- * @Author: Sqcode
- * @Date: 2021/4/28 10:16
+ * @author: Sqcode
+ * @since: 2021/4/28 10:16
  */
 @Configuration
 public class RabbitConfig {

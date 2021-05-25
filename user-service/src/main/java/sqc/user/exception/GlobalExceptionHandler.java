@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Description: 全局异常拦截
- * @Author: Sqcode
- * @Date: 2021/5/21 8:47
+ * @author: Sqcode
+ * @since: 2021/5/21 8:47
  */
 @RestControllerAdvice
 @Slf4j

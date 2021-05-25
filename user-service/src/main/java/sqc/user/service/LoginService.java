@@ -5,8 +5,8 @@ import sqc.user.entity.vo.LoginVO;
 
 /**
  * @Description:
- * @Author: Sqcode
- * @Date: 2021/4/29 8:09
+ * @author: Sqcode
+ * @since: 2021/4/29 8:09
  */
 public interface LoginService {
 

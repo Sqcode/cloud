@@ -7,8 +7,8 @@ import sqc.user.enums.BusinessErrorTypeEnum;
 
 /**
  * @Description:
- * @Author: Sqcode
- * @Date: 2021/4/29 8:28
+ * @author: Sqcode
+ * @since: 2021/4/29 8:28
  */
 @Data
 public class BusinessException extends BaseException {

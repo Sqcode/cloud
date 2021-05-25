@@ -16,8 +16,8 @@ import java.util.*;
  * @Description: mybatis-plus，MySQL表 代码生成器。
  * 运行CodeGeneration，输入模块名称（会是一个包，然后其他生成的文件都在这个下面。如果生成了Controller，那@RequestMapping，就会带上这个模块名）
  * 输入表明，多个可用“,”逗号分隔，当然啦，需要设置。strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
- * @Author: Sqcode
- * @Date: 2021/4/28 15:15
+ * @author: Sqcode
+ * @since: 2021/4/28 15:15
  */
 public class CodeGeneration {
 

@@ -6,8 +6,8 @@ import java.util.Map;
 
 /**
  * @Description:
- * @Author: Sqcode
- * @Date: 2021/4/28 9:56
+ * @author: Sqcode
+ * @since: 2021/4/28 9:56
  */
 //@Component
 //@RabbitListener(queues = "fanout.A")

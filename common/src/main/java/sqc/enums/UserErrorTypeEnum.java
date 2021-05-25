@@ -4,8 +4,8 @@ import sqc.exception.ErrorType;
 
 /**
  * @Description: 用户端错误
- * @Author: Sqcode
- * @Date: 2021/5/21 10:26
+ * @author: Sqcode
+ * @since: 2021/5/21 10:26
  */
 public enum UserErrorTypeEnum implements ErrorType {
 

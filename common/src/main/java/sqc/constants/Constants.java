@@ -2,8 +2,8 @@ package sqc.constants;
 
 /**
  * @Description:
- * @Author: Sqcode
- * @Date: 2021/5/21 10:30
+ * @author: Sqcode
+ * @since: 2021/5/21 10:30
  */
 public class Constants {
     final String A = "A";
