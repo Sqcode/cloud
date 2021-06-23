@@ -5,18 +5,18 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import sqc.entity.vo.Result;
 import sqc.goods.entity.form.GoodsForm;
 import sqc.goods.entity.param.GoodsParams;
 import sqc.goods.entity.param.GoodsParamsPage;
 import sqc.goods.entity.po.Goods;
 import sqc.goods.service.GoodsService;
+import sqc.goods.util.excel.ExcelReaderUtil;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -38,9 +38,7 @@ public class GoodsController {
 
     @PostMapping("list")
     public Result list (GoodsParams params) {
-        List<Goods> list = goodsService.list(params);
-
-        return Result.success(list);
+        return Result.success(goodsService.list(params));
     }
 
     @PostMapping("listPage")
@@ -48,5 +46,23 @@ public class GoodsController {
 //    @Validated
     public Result listPage (@RequestBody GoodsParamsPage goodsParamsPage) {
         return Result.success(goodsService.listPageVO(goodsParamsPage));
+    }
+
+    @PostMapping("/upload")
+    @CrossOrigin
+    public Result file (@RequestParam("file") MultipartFile file) {
+        try {
+            List<String[]> excelData = ExcelReaderUtil.getExcelData(file);
+            for (String[] excelDatum : excelData) {
+                for (String s : excelDatum) {
+                    System.out.println(s);
+                }
+            }
+            return Result.success(excelData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return Result.fail();
     }
 }

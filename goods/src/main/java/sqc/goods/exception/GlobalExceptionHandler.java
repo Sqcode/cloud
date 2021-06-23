@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import sqc.entity.vo.Result;
-import sqc.enums.UserErrorTypeEnum;
 import sqc.exception.BaseException;
+import sqc.exception.SystemErrorType;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BaseException.class)
     public Result baseException(BaseException e, HttpServletRequest request) {
-        log.debug("Request URI ：{}, Message：{}", request.getRequestURI(), e.getMessage());
+        log.error("Request URI ：{}, Message：{}", request.getRequestURI(), e);
         return Result.fail(e, e.getMessage());
     }
 
@@ -35,22 +35,21 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Result baseException(MethodArgumentNotValidException e, HttpServletRequest request) {
-        log.debug("Request URI ：{}, Message：{}", request.getRequestURI(), e.getMessage());
-        return Result.fail(UserErrorTypeEnum.A0421, e.getBindingResult().getFieldError().getDefaultMessage());
-//        return Result.fail(e.getBindingResult().getFieldError().getDefaultMessage());
+        log.error("Request URI ：{}, Message：{}", request.getRequestURI(), e);
+        return Result.fail(SystemErrorType.ARGUMENT_NOT_VALID, e.getBindingResult().getFieldError().getDefaultMessage());
     }
-
 
     @ExceptionHandler(value = {Exception.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Result exception(Exception e) {
-        log.error("Exception:{}", e.getMessage());
+    public Result exception(Exception e, HttpServletRequest request) {
+        log.error("Request URI ：{}, Exception: {}", request.getRequestURI(), e);
         return Result.fail(e.getMessage());
     }
 
     @ExceptionHandler(value = {Throwable.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Result throwable(Throwable e) {
+    public Result throwable(Throwable e, HttpServletRequest request) {
+        log.error("Request URI ：{}, Throwable: {}", request.getRequestURI(), e);
         return Result.fail(e.getMessage());
     }
 }
