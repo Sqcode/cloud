@@ -45,7 +45,7 @@ public class GoodsController {
     @ApiOperation(value = "查询分页列表", notes = "查询商品的分页列表")
 //    @Validated
     public Result listPage (@RequestBody GoodsParamsPage goodsParamsPage) {
-        return Result.success(goodsService.listPageVO(goodsParamsPage));
+        return Result.success(goodsService.listPage(goodsParamsPage));
     }
 
     @PostMapping("/upload")

@@ -3,7 +3,7 @@
 <mapper namespace="sqc.goods.dao.GoodsMapper">
   <resultMap id="BaseResultMap" type="sqc.goods.entity.po.Goods">
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="good_name" jdbcType="VARCHAR" property="goodName" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="stock" jdbcType="INTEGER" property="stock" />
     <result column="price" jdbcType="DECIMAL" property="price" />
@@ -14,7 +14,7 @@
     <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, good_name, description, stock, price, flag, created_by, created_time, updated_by,
+    id, goods_name, description, stock, price, flag, created_by, created_time, updated_by,
     updated_time
   </sql>
   <select id="selectListPage" resultType="sqc.goods.entity.vo.GoodsVO">

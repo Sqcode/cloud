@@ -48,7 +48,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     @Override
     public IPage<Goods> listPage(GoodsParamsPage goodsParamsPage) {
         QueryWrapper<Goods> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq(StringUtils.isNotBlank(goodsParamsPage.getGoodName()), "goods_name", goodsParamsPage.getGoodName());
+        queryWrapper.eq(StringUtils.isNotBlank(goodsParamsPage.getGoodsName()), "goods_name", goodsParamsPage.getGoodsName());
         IPage<Goods> goodsPage = baseMapper.selectPage(goodsParamsPage.getPage(), queryWrapper);
         return goodsPage;
     }

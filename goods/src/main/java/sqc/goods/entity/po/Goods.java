@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Goods extends BasePO {
 
-    private String goodName;
+    private String goodsName;
 
     private String description;
 
