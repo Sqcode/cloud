@@ -17,6 +17,7 @@
         <module>common</module>
         <module>goods</module>
         <module>user-service</module>
+        <module>manage</module>
     </modules>
 
     <parent>

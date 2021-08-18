@@ -1,13 +1,13 @@
 server:
-  port: 8002
+  port: 8003
 spring:
   apllcation:
-    name: goods-server
+    name: manage-server
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
-        service: goods-server
+        service: manage-server
 #  redis:
 #    host: localhost
 #    port: 6379
@@ -30,7 +30,7 @@ spring:
 jetcache:
   statIntervalMinutes: 1
   areaInCacheName: false
-  hiddenPackages: sqc.goods #隐藏包名
+  hiddenPackages: cn.su #隐藏包名
   local:
     default:
       type: linkedhashmap
@@ -50,7 +50,7 @@ jetcache:
       port: 6379
 logging:
   level:
-    sqc: debug
+    cn.su: debug
   file:
     path: logs
     max-size: 521MB
