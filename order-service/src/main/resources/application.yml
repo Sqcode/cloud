@@ -2,17 +2,22 @@ server:
   port: 9000
 spring:
   apllcation:
-    name: order-service
+    name: order-server
 
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
-        service: order-service
+        service: order-server
     sentinel:
       transport:
-        dashboard: localhost：8021
-  data
+        dashboard: localhost:8021
 feign:
   sentinel:
     enabled: true
+logging:
+  level:
+    sqc: debug
+  file:
+    path: logs
+    max-size: 521MB

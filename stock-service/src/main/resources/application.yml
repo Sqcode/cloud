@@ -1,13 +1,16 @@
-
+server:
+  port: 8082
 spring:
   apllcation:
-    name: stock-service
-
-
+    name: stock-server
   cloud:
     nacos:
       discovery:
         server-addr: 192.168.17.51:8848
-        service: stock-service
-server:
-  port: 8082
+        service: stock-server
+logging:
+  level:
+    sqc: debug
+  file:
+    path: logs
+    max-size: 521MB

@@ -1,0 +1,10 @@
+server:
+  port: 9000
+spring:
+  apllcation:
+    name: user-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        service: user-server
