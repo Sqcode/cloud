@@ -1,0 +1,24 @@
+server:
+  port: 10000
+spring:
+  apllcation:
+    name: schedule-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sqc?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=GMT
+    username: root
+    password: root
+logging:
+  level:
+    sqc: debug
+  file:
+    path: logs
+    max-size: 521MB
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: localhost:8848
+#        service: schedule-service
+#    sentinel:
+#      transport:
+#        dashboard: localhost：8021

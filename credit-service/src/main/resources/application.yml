@@ -1,0 +1,21 @@
+server:
+  port: 8090
+spring:
+  apllcation:
+    name: credit-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        service: credit-server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+logging:
+  level:
+    sqc: debug
+  file:
+    path: logs
+    max-size: 521MB

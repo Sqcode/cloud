@@ -1,0 +1,36 @@
+server:
+  port: 7777
+spring:
+  apllcation:
+    name: gateway-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost
+        service: gateway-server
+    gateway:
+      discovery:
+        locator:
+          # 允许nacos注册发现
+          enabled: true
+      routes:
+      - id: order
+        uri: lb://order-server/
+        ###路由匹配规则 表示当客户端访问http://ip:8000/order-service/**地址时, gateway就会转发到order-service会员服务的具体地址
+        predicates:
+          - Path=/order-server/**
+        filters:
+          # 将网关端口号截取，转发
+          - StripPrefix=1
+      - id: goods
+        uri: lb://goods-server/
+        predicates:
+          - Path=/goods-server/**
+        filters:
+          - StripPrefix=1
+#Spring boot actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

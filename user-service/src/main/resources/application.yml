@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sqc?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+#  redis:
+#    host: localhost
+#    port: 6379
+#    database: 0
+#    password:
+#    timeout: 10000
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#    publisher-confirm-type: correlated
+#    #确认消息已发送到队列(Queue)
+#    publisher-returns: true
+
+logging:
+  # level即级别为trace打印trace以上的所有，debug打印debug以上的所有(不会打印trace的信息了)
+  level:
+    # 对某个包sqc.user，设置logging级别，trace < debug < info < warn < error < ...
+    sqc.user: debug
+  file:
+    # file.name / file.path ，二选其一
+    path: logs
+    # max-size 文件最大的存储空间，大于该值则分割文件-生成多个文件。单位可以是 KB/MB/GB
+    max-size: 521MB
+    # max-history,clean-history-on-start 仅支持logback？？？(以下配置好像不起效)
+    # max-history 保留天数。
+    # max-history: 1
+    # 项目启动的时候就删除，配合max-history
+    # clean-history-on-start: true
+
+
+
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8021
+#feign:
+#  sentinel:
+#    enabled: true
